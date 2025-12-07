@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Department Distribution</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      padding: 4px;
+      background: #fafafa;
+    }
+    pre {
+      background: #111;
+      color: #f5f5f5;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Employee Department Distribution</h1>
+  <p>This visualization shows the distribution of employees across departments and includes the Python code used to generate the chart.</p>
+
+  <h2>Histogram of Departments</h2>
+  <img src="department_hist.png" alt="Histogram of employees by department">
+
+  <h2>Python Code</h2>
+  <pre><code>
+# employee_viz.py
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = [
+    {"EmployeeID": 1, "Department": "Marketing", "Region": "North", "PerformanceScore": 4.5},
+    {"EmployeeID": 2, "Department": "Sales", "Region": "South", "PerformanceScore": 3.8},
+    {"EmployeeID": 3, "Department": "IT", "Region": "West", "PerformanceScore": 4.2},
+    {"EmployeeID": 4, "Department": "Marketing", "Region": "East", "PerformanceScore": 4.0},
+    {"EmployeeID": 5, "Department": "HR", "Region": "North", "PerformanceScore": 3.6},
+    {"EmployeeID": 6, "Department": "Finance", "Region": "South", "PerformanceScore": 4.1},
+    {"EmployeeID": 7, "Department": "Operations", "Region": "West", "PerformanceScore": 3.9},
+    {"EmployeeID": 8, "Department": "Marketing", "Region": "South", "PerformanceScore": 4.7},
+    {"EmployeeID": 9, "Department": "Sales", "Region": "East", "PerformanceScore": 3.5},
+    {"EmployeeID": 10, "Department": "IT", "Region": "North", "PerformanceScore": 4.3},
+    {"EmployeeID": 11, "Department": "Marketing", "Region": "West", "PerformanceScore": 4.1},
+    {"EmployeeID": 12, "Department": "HR", "Region": "East", "PerformanceScore": 3.7},
+    {"EmployeeID": 13, "Department": "Finance", "Region": "North", "PerformanceScore": 4.0},
+    {"EmployeeID": 14, "Department": "Operations", "Region": "South", "PerformanceScore": 3.8},
+    {"EmployeeID": 15, "Department": "Marketing", "Region": "North", "PerformanceScore": 4.6},
+    {"EmployeeID": 16, "Department": "Sales", "Region": "West", "PerformanceScore": 3.9},
+    {"EmployeeID": 17, "Department": "IT", "Region": "South", "PerformanceScore": 4.4},
+    {"EmployeeID": 18, "Department": "Marketing", "Region": "East", "PerformanceScore": 4.2},
+    {"EmployeeID": 19, "Department": "HR", "Region": "West", "PerformanceScore": 3.5},
+    {"EmployeeID": 20, "Department": "Marketing", "Region": "South", "PerformanceScore": 4.8},
+]
+
+df = pd.DataFrame(data)
+
+marketing_count = (df["Department"] == "Marketing").sum()
+print("Number of employees in Marketing department:", marketing_count)
+
+sns.set_style("whitegrid")
+plt.figure(figsize=(8, 6))
+sns.countplot(x="Department", data=df)
+plt.title("Distribution of Employees by Department")
+plt.xlabel("Department")
+plt.ylabel("Number of Employees")
+plt.tight_layout()
+plt.savefig("department_hist.png")
+plt.close()
+  </code></pre>
+
+  <p>Author email (for verification): 22f2001638@ds.study.iitm.ac.in</p>
+</body>
+</html>
